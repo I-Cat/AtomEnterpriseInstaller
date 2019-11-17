@@ -27,6 +27,12 @@ call :UnZipFile "%AtomInstallerPath%\Atom" "%ZipFilePath%"
 mkdir "%AtomPath%"
 xcopy "%AtomInstallerPath%\Atom\Atom x64" "%AtomPath%" /s /h /q /y
 
+:: Change ownership to SYSTEM
+icacls "%AtomPath%" /setowner SYSTEM /t
+
+:: Unblock using powershell
+powershell -command "Get-ChildItem -Path '%AtomPath%' -Recurse | Unblock-File"
+
 :: Create those shortcuts
 call :CreateShortcut "%ShortcutFilePath1%" "%AtomPath%\atom.exe"
 call :CreateShortcut "%ShortcutFilePath2%" "%AtomPath%\atom.exe"
