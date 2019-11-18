@@ -21,6 +21,9 @@ if exist "%ShortcutFilePath2%" del /f /q "%ShortcutFilePath2%"
 :: Delete Atom installation
 if exist "%AtomPath%" rmdir /q /s "%AtomPath%"
 
+:: Delete Atom URI Handler registry keys
+reg delete HKEY_CLASSES_ROOT\atom /f
+
 exit /b 0
 
 :: Functions
