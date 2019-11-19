@@ -39,8 +39,8 @@ call :CreateShortcut "%ShortcutFilePath2%" "%AtomPath%\atom.exe"
 
 :: Create registry keys for URI Handler
 reg add HKCR\atom /ve /d URL:atom /f
-reg add HKCR\atom\shell\open\command /ve /d "\"C:\Program Files\Atom\atom.exe\" --uri-handler -- \"%1\"" /f
 reg add HKCR\atom /v "URL Protocol" /f
+reg add HKCR\atom\shell\open\command /ve /d "\"C:\Program Files\Atom\atom.exe\" --uri-handler -- \"%1\"" /f
 
 :: Cleanup
 if exist "%AtomInstallerPath%\Atom" rmdir /q /s "%AtomInstallerPath%\Atom"
