@@ -42,6 +42,12 @@ reg add HKCR\atom /ve /d URL:atom /f
 reg add HKCR\atom /v "URL Protocol" /f
 reg add HKCR\atom\shell\open\command /ve /d "\"C:\Program Files\Atom\atom.exe\" --uri-handler -- \"%1\"" /f
 
+:: Second key generated - Experimental
+:: reg add HKLM\SOFTWARE\Classes\atom /ve /d URL:atom /f
+:: reg add HKLM\SOFTWARE\Classes\atom /v "URL Protocol" /f
+:: reg add HKLM\SOFTWARE\Classes\atom\shell\open\command /ve /d "\"C:\Program Files\Atom\atom.exe\" --uri-handler -- \"%1\"" /f
+
+
 :: Cleanup
 if exist "%AtomInstallerPath%\Atom" rmdir /q /s "%AtomInstallerPath%\Atom"
 
